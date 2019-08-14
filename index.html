@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Student Grade Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="container-fluid section">
+		<div class="row">
+			<div class="col-3 mr-5">
+				<h3 class="animated infinite pulse delay-1s">Student Grade Calculator</h3>
+			</div>
+			<div class="col-7">
+				<form onSubmit="return false;">
+					<input class="d-block form-control mt-2 text-white" type="text" placeholder="Web Programming" autocomplete="off">
+					<input class="d-block form-control mt-2 text-white" type="text" placeholder="Maths" autocomplete="off">
+					<input class="d-block form-control mt-2 text-white" type="text" placeholder="Physics" autocomplete="off">
+					<input class="d-block form-control mt-2 text-white" type="text" placeholder="Computer" autocomplete="off">
+					<button class="btn btn-info mt-3" type="button" id="percent" onClick="showPercent()">Show Percentage</button>
+				</form>
+			</div>
+		</div>
+		<div class="row w-100 mt-3">
+			<div class="col-12 text-center text-white">
+				<p id="result" class="d-none"></p>
+<!--				<p id="percent"></p>-->
+				<p id="grade1"></p>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script>
+	$('input').keyup(function(){
+	  if ($(this).val() > 100){
+		alert("No numbers above 100");
+		$(this).val('');
+	  }
+	});
+	function showPercent(){
+		var web = parseFloat(document.getElementsByTagName("INPUT")[0].value);
+		var math = parseFloat(document.getElementsByTagName("INPUT")[1].value);
+		var physic = parseFloat(document.getElementsByTagName("INPUT")[2].value);
+		var comp = parseFloat(document.getElementsByTagName("INPUT")[3].value);
+		var result = document.getElementById("result");
+		var percent = "";
+		var grade = "";
+		var grade1 = document.getElementById("grade1");		
+		result.innerHTML = web + math + physic + comp;
+		percent = result.innerHTML/400 * 100;
+//		grade.innerHTML = "Your score is " + result.innerHTML + " out of 400 and Your Percentage is " + result.innerHTML/400 * 100 + "%.";
+//		grade.innerHTML = ` Your score is ${result.innerHTML} out of 400 and Percentage is ${result.innerHTML/400 * 100}%. `;
+		
+		if(percent >=80){
+			grade = 'Your Grade is A. You are pass';
+		}
+		else if(percent <=79 && percent >=60){
+			grade = 'Your Grade is B. You are pass';
+		}
+		else if(percent <=59 && percent >=35){
+			grade = 'Your Grade is C. You are pass';
+		}
+		else if(percent <=34){
+			grade = 'You are fail';
+		}
+		grade1.innerHTML = ` Your score is ${result.innerHTML} out of 400 and Percentage is ${percent}%. <br> ${grade}.`;
+	}
+</script>
+</html>

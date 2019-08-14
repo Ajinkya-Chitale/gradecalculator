@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+@import url(https://fonts.googleapis.com/css?family=Handlee);
+
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'),
+    url('https://cdn.example.com/fonts/open-sans-v13-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('https://cdn.example.com/fonts/open-sans-v13-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+body{
+	background-color: #17a2b8 !important;
+	font-family: 'Handlee' !important;
+}
+.section{
+	width: 40% !important;
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #333;
+}
+h3{
+	color: #17a2b8;
+	position: absolute;
+    top: 30%;
+    left: 30%;
+	border-left: 3px solid #17a2b8;
+	padding-left: 6px;
+}
+form input{
+	border: none !important;
+	border-radius: 0px !important;
+	background-color: #333 !important;
+	border-bottom: 1px solid #aaa !important;
+}
+form input:focus{
+	border-bottom: 2px solid #aaa !important;
+}
+form input:focus, button:focus{
+	box-shadow: none !important;
+}
